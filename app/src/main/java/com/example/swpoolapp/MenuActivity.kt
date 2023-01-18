@@ -13,6 +13,7 @@ class MenuActivity : AppCompatActivity() {
         val btProfile = findViewById<Button>(R.id.MenueLkBT)
         val btTickets = findViewById<Button>(R.id.MenuAbonBT)
         val btSchedule = findViewById<Button>(R.id.MenueTtBT)
+        val btSeans = findViewById<Button>(R.id.MenuSeansBT)
 
         btProfile.setOnClickListener {
             val intent = Intent(this@MenuActivity, ProfileActivity::class.java)
@@ -26,6 +27,11 @@ class MenuActivity : AppCompatActivity() {
 
         btSchedule.setOnClickListener {
             val intent = Intent(this@MenuActivity, ScheduleActivity::class.java)
+            startActivity(intent)
+        }
+
+        btSeans.setOnClickListener {
+            val intent = Intent(this@MenuActivity, SeanceActivity::class.java)
             startActivity(intent)
         }
     }
