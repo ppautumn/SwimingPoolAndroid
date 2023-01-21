@@ -101,7 +101,7 @@ class ScheduleActivity : AppCompatActivity() {
         return answ
     }
 
-    fun parseTableFromJSON(RawStr: String): ArrayList<ArrayList<String>> {
+    fun parseTableFromJSON(RawStr: String): MutableMap<String, MutableMap<String, String>> {
         val table = arrayListOf<ArrayList<String>>()
         val daysRaw = ArrayList<String>()
         val tableMap = mutableMapOf<String, MutableMap<String, String>>()
@@ -116,12 +116,12 @@ class ScheduleActivity : AppCompatActivity() {
             for (hour in hoursRaw) {
                 val tmp = hour.toString().split("=")
                 hours.put(tmp[0], tmp[1])
-                Log.e("Table",tmp[0] +" "+tmp[1])
+                Log.e("Table", tmp[0] + " " + tmp[1])
             }
             tableMap.put(day, hours)
         }
         Log.e("Table", tableMap.toString())
-        return table;
+        return tableMap;
     }
 
     fun parseTable(): ArrayList<ArrayList<String>> {
