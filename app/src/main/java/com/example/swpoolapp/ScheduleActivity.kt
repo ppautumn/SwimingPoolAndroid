@@ -1,18 +1,57 @@
 package com.example.swpoolapp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import java.net.HttpURLConnection
+import java.net.URL
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 class ScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
+        val currentDate = LocalDateTime.now()
+        val curerntDateStr = currentDate.format(DateTimeFormatter.ofPattern("YYYY-MM-DD"))
+        val lastDate = getLastDate(currentDate)
+        val lastDateStr =
+            lastDate.toString().subSequence(0, lastDate.toString().length - 6).toString()
+        //Log.e("MyDate0", curerntDateStr)
+        //Log.e("MyDate1", lastDateStr)
+        var responseJSON = ""
+        val x = object : Thread() {
+            override fun run() {
+                println("running from Thread: ${Thread.currentThread()}")
+                responseJSON =
+                    sendGet("http://192.168.0.105/tracks-schedule/?start=${curerntDateStr}&end=${lastDateStr}");
+
+            }
+        }
+        x.start()
+        x.join()
+        Log.e("MyJSON", responseJSON)
         CreateTable(parseTable())
     }
+
+    fun getLastDate(currentDate: LocalDateTime): LocalDateTime {
+        var day = currentDate.dayOfMonth + 14
+        var month = currentDate.month.value
+        var year = currentDate.year
+        if (day > currentDate.month.length(currentDate.year % 4 == 0)) {
+            if (month == 11)
+                year.plus(1)
+            month += 1
+            day %= currentDate.month.length(currentDate.year % 4 == 0)
+        }
+        val lastDate = LocalDateTime.of(year, month, day, 0, 0)
+        return lastDate
+    }
+
 
     fun CreateTable(Table: ArrayList<ArrayList<String>>) {
         val scale: Float = this.getResources().getDisplayMetrics().density
@@ -41,6 +80,20 @@ class ScheduleActivity : AppCompatActivity() {
             i++
             GUITable.addView(rowTable)
         }
+    }
+
+    private fun sendGet(URLReq: String): String {
+        println("kholod")
+        val urlTxt = URLReq
+        val url = URL(urlTxt)
+        val urlConnection = (url.openConnection() as HttpURLConnection).apply {
+            requestMethod = "GET"
+            doInput = true
+        }
+        urlConnection.connect()
+        val inputStream = urlConnection.inputStream
+        val answ = inputStream.bufferedReader().readText()
+        return answ
     }
 
     fun parseTable(): ArrayList<ArrayList<String>> {
