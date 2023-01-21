@@ -2,9 +2,11 @@ package com.example.swpoolapp
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.beust.klaxon.JsonObject
@@ -13,6 +15,7 @@ import org.json.JSONObject
 import org.json.JSONTokener
 import java.net.HttpURLConnection
 import java.net.URL
+import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
@@ -39,8 +42,8 @@ class ScheduleActivity : AppCompatActivity() {
         x.start()
         x.join()
         Log.e("MyJSON", responseJSON)
-        parseTableFromJSON(responseJSON)
-        CreateTable(parseTable())
+        val table = parseTableFromJSON(responseJSON)
+        CreateTable(table)
     }
 
     fun getLastDate(currentDate: LocalDateTime): LocalDateTime {
@@ -67,18 +70,26 @@ class ScheduleActivity : AppCompatActivity() {
             var j = 0
             val rowTable = TableRow(this)
             var nodes = arrayListOf<TextView>()
-
             for (node in line) {
                 val tv = TextView(this)
                 tv.text = node;
                 tv.setTextColor(ContextCompat.getColor(this, R.color.black))
                 tv.setTextSize(18f)
                 if (i == 0)
-                    tv.setTextSize(24f)
+                    tv.setTextSize(20f)
                 tv.layoutParams =
-                    TableRow.LayoutParams((100 * scale + 0.5f).toInt(), (50 * scale + 0.5f).toInt())
+                    TableRow.LayoutParams((150 * scale + 0.5f).toInt(), (75 * scale + 0.5f).toInt())
+                tv.gravity = Gravity.CENTER
                 if (i % 2 == 1)
                     tv.setBackgroundColor(ContextCompat.getColor(this, R.color.TBgray))
+                val date = "hour:${line[0]} day:${Table[0][j]}"
+                tv.setOnClickListener {
+                    val text = date
+                    val duration = Toast.LENGTH_SHORT
+
+                    val toast = Toast.makeText(applicationContext, text, duration)
+                    toast.show()
+                }
                 rowTable.addView(tv)
                 j++
             }
@@ -101,27 +112,65 @@ class ScheduleActivity : AppCompatActivity() {
         return answ
     }
 
-    fun parseTableFromJSON(RawStr: String): MutableMap<String, MutableMap<String, String>> {
+    fun parseTableFromJSON(RawStr: String): ArrayList<ArrayList<String>> {
+        val listDays = ArrayList<String>()
+        val listHours = ArrayList<String>()
+        val listNodes = ArrayList<ArrayList<String>>()
+
         val table = arrayListOf<ArrayList<String>>()
-        val daysRaw = ArrayList<String>()
+
         val tableMap = mutableMapOf<String, MutableMap<String, String>>()
         var tracksJSONstrBuilder =
             kotlin.text.StringBuilder((JSONTokener(RawStr).nextValue() as JSONObject).getString("available_tracks"))
         val AllObjectsMap = Parser.default().parse(tracksJSONstrBuilder) as JsonObject
 
         for (day in AllObjectsMap.keys) {
-            daysRaw.add(day)
-            val hours = mutableMapOf<String, String>()
+            listDays.add(day)
+            listNodes.add(ArrayList<String>())
+        }
+        val hoursRaw = AllObjectsMap[listDays[0]] as JsonObject
+        for (hour in hoursRaw) {
+            val tmp = hour.toString().split("=")
+            listHours.add(tmp[0])
+        }
+
+        var i = 0
+        for (day in listDays) {
+
             val hoursRaw = AllObjectsMap[day] as JsonObject
             for (hour in hoursRaw) {
                 val tmp = hour.toString().split("=")
-                hours.put(tmp[0], tmp[1])
-                Log.e("Table", tmp[0] + " " + tmp[1])
+                listNodes[i].add(tmp[1])
             }
-            tableMap.put(day, hours)
+            i++;
         }
-        Log.e("Table", tableMap.toString())
-        return tableMap;
+
+        val transpListNodes = ArrayList<ArrayList<String>>()
+
+        val listDaysCool = ArrayList<String>()
+        listDaysCool.add("")
+        for (day in listDays)
+            listDaysCool.add(getCoolDate(day))
+        transpListNodes.add(listDaysCool)
+        for (k in 1..(listHours.count())) {
+            transpListNodes.add(ArrayList<String>())
+            transpListNodes[k].add(listHours[k - 1])
+            var j = 0
+            for (day in listNodes) {
+                transpListNodes[k].add(day[k - 1] + " Дор.")
+                j++
+            }
+        }
+
+        Log.e("Table", listDays.toString())
+        Log.e("Table", listHours.toString())
+        Log.e("Table", transpListNodes.toString())
+        return transpListNodes;
+    }
+
+    fun getCoolDate(date: String): String {
+        val dateLDT = LocalDate.parse(date)
+        return "${dateLDT.dayOfMonth} ${dateLDT.month.name}\n${dateLDT.dayOfWeek}"
     }
 
     fun parseTable(): ArrayList<ArrayList<String>> {
