@@ -1,5 +1,6 @@
 package com.example.swpoolapp
 
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 
 class SeanceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seance)
 

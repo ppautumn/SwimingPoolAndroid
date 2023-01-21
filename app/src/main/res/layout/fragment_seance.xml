@@ -43,7 +43,7 @@
             android:layout_width="0dp"
             android:layout_height="19dp"
             android:layout_marginTop="8dp"
-            android:text="Свободное плавание, 1 дорожка 45 минут"
+            android:text="Свободное плавание, 2я дорожка 45 минут"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,30 +54,28 @@
 
         <TextView
             android:id="@+id/TypeTV2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="392dp"
+            android:layout_height="38dp"
             android:layout_marginTop="10dp"
             android:text="Иванов Иван Иванович (взр)"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.473"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TypeTV1"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.066" />
 
-        <TextView
-            android:id="@+id/PriceTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="2я дорожка"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+        <Button
+            android:id="@+id/button"
+            android:layout_width="135dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="16dp"
+            android:text="Отменить"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.993"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TypeTV2" />
 
