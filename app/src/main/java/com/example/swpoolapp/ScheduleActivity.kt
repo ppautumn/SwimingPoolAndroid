@@ -20,6 +20,7 @@ import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
 class ScheduleActivity : AppCompatActivity() {
+    var usefulData = UsefullData();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
@@ -34,8 +35,9 @@ class ScheduleActivity : AppCompatActivity() {
         val x = object : Thread() {
             override fun run() {
                 println("running from Thread: ${Thread.currentThread()}")
+
                 responseJSON =
-                    sendGet("http://192.168.0.105/tracks-schedule/?start=${curerntDateStr}&end=${lastDateStr}");
+                    sendGet("${usefulData.serverAddr}/tracks-schedule/?start=${curerntDateStr}&end=${lastDateStr}");
 
             }
         }
@@ -51,8 +53,7 @@ class ScheduleActivity : AppCompatActivity() {
         var month = currentDate.month.value
         var year = currentDate.year
         if (day > currentDate.month.length(currentDate.year % 4 == 0)) {
-            if (month == 11)
-                year.plus(1)
+            if (month == 11) year.plus(1)
             month += 1
             day %= currentDate.month.length(currentDate.year % 4 == 0)
         }
@@ -75,13 +76,11 @@ class ScheduleActivity : AppCompatActivity() {
                 tv.text = node;
                 tv.setTextColor(ContextCompat.getColor(this, R.color.black))
                 tv.setTextSize(18f)
-                if (i == 0)
-                    tv.setTextSize(20f)
+                if (i == 0) tv.setTextSize(20f)
                 tv.layoutParams =
                     TableRow.LayoutParams((150 * scale + 0.5f).toInt(), (75 * scale + 0.5f).toInt())
                 tv.gravity = Gravity.CENTER
-                if (i % 2 == 1)
-                    tv.setBackgroundColor(ContextCompat.getColor(this, R.color.TBgray))
+                if (i % 2 == 1) tv.setBackgroundColor(ContextCompat.getColor(this, R.color.TBgray))
                 val date = "hour:${line[0]} day:${Table[0][j]}"
                 tv.setOnClickListener {
                     val text = date
@@ -149,8 +148,7 @@ class ScheduleActivity : AppCompatActivity() {
 
         val listDaysCool = ArrayList<String>()
         listDaysCool.add("")
-        for (day in listDays)
-            listDaysCool.add(getCoolDate(day))
+        for (day in listDays) listDaysCool.add(getCoolDate(day))
         transpListNodes.add(listDaysCool)
         for (k in 1..(listHours.count())) {
             transpListNodes.add(ArrayList<String>())
@@ -177,8 +175,7 @@ class ScheduleActivity : AppCompatActivity() {
         val table = arrayListOf<ArrayList<String>>()
         for (i in (1..15)) {
             val a = arrayListOf<String>()
-            for (j in (1..15))
-                a.add(i.toString() + " " + j.toString())
+            for (j in (1..15)) a.add(i.toString() + " " + j.toString())
             table.add(a)
         }
         return table;
