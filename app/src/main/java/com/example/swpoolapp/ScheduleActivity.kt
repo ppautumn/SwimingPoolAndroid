@@ -7,6 +7,10 @@ import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
+import org.json.JSONObject
+import org.json.JSONTokener
 import java.net.HttpURLConnection
 import java.net.URL
 import java.time.LocalDateTime
@@ -35,6 +39,7 @@ class ScheduleActivity : AppCompatActivity() {
         x.start()
         x.join()
         Log.e("MyJSON", responseJSON)
+        parseTableFromJSON(responseJSON)
         CreateTable(parseTable())
     }
 
@@ -94,6 +99,29 @@ class ScheduleActivity : AppCompatActivity() {
         val inputStream = urlConnection.inputStream
         val answ = inputStream.bufferedReader().readText()
         return answ
+    }
+
+    fun parseTableFromJSON(RawStr: String): ArrayList<ArrayList<String>> {
+        val table = arrayListOf<ArrayList<String>>()
+        val daysRaw = ArrayList<String>()
+        val tableMap = mutableMapOf<String, MutableMap<String, String>>()
+        var tracksJSONstrBuilder =
+            kotlin.text.StringBuilder((JSONTokener(RawStr).nextValue() as JSONObject).getString("available_tracks"))
+        val AllObjectsMap = Parser.default().parse(tracksJSONstrBuilder) as JsonObject
+
+        for (day in AllObjectsMap.keys) {
+            daysRaw.add(day)
+            val hours = mutableMapOf<String, String>()
+            val hoursRaw = AllObjectsMap[day] as JsonObject
+            for (hour in hoursRaw) {
+                val tmp = hour.toString().split("=")
+                hours.put(tmp[0], tmp[1])
+                Log.e("Table",tmp[0] +" "+tmp[1])
+            }
+            tableMap.put(day, hours)
+        }
+        Log.e("Table", tableMap.toString())
+        return table;
     }
 
     fun parseTable(): ArrayList<ArrayList<String>> {
