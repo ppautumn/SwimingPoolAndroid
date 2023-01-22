@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.493">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="323dp"
+            android:layout_height="644dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal" />
+
+                <TextView
+                    android:id="@+id/ProfileTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_alternates_medium"
+                    android:gravity="center"
+                    android:text="Профиль"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/ProfileSNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:text="Фамилия"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ProfileSNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:hint="Иванов"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/ProfileNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:text="Имя"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ProfileNameET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:hint="Иван"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/ProfileOtchTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:text="Отчество"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/ProfileOtchET"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:hint="Иванович"
+                    android:inputType="textPersonName" />
+
+                <TextView
+                    android:id="@+id/ProfileDateTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:text="Дата рождения"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/editTextDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:fontFamily="@font/montserrat_alternates"
+                    android:gravity="center"
+                    android:hint="01.01.1991"
+                    android:inputType="date" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ProfilePhoneTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:text="Телефон"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/ProfilePhoneET"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginRight="5dp"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:hint="Номер телефона"
+                            android:inputType="phone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/ProfileEmailTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:text="Email"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/ProfileEmailET"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:ems="10"
+                            android:fontFamily="@font/montserrat_alternates"
+                            android:gravity="center"
+                            android:hint="E-mail"
+                            android:inputType="textEmailAddress" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/ProfileEditBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_alternates_medium"
+                        android:text="Изменить"
+                        android:textColor="@color/TBgray" />
+
+                    <Button
+                        android:id="@+id/ProfileSaveBT"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_alternates_medium"
+                        android:text="Сохранить"
+                        android:textColor="@color/TBgray"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/ProfileChPassBT"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/montserrat_alternates_medium"
+                    android:text="Изменить пароль"
+                    android:textColor="@color/TBgray" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="276dp"
+            android:layout_height="372dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/loginTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:gravity="center"
+                android:text="Войти в личный кабинет"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/LoginET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:hint="E-mail"
+                android:inputType="textWebEmailAddress|textPassword"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:theme="@style/Theme.SwPoolApp" />
+
+            <EditText
+                android:id="@+id/PassET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:hint="Пароль"
+                android:inputType="textPassword" />
+
+            <Button
+                android:id="@+id/InpBT"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#9C27B0"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="Войти"
+                android:textColor="@color/TBgray"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/ForgetPassTV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:text="Забыли пароль?" />
+
+            <TextView
+                android:id="@+id/noAuthTB"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:text="Если у вас ещё нет пароля для входа, вам нужно зарегистрироваться" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
