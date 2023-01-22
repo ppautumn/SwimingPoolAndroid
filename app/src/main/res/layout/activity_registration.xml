@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
@@ -38,15 +39,35 @@
                 android:ems="10"
                 android:fontFamily="@font/montserrat_alternates"
                 android:gravity="center"
-                android:hint="Телефон"
-                android:inputType="textPassword|phone" />
+                android:hint="E-mail"
+                android:inputType="textPassword|textEmailAddress" />
 
             <TextView
                 android:id="@+id/RegTV2"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:fontFamily="@font/montserrat_alternates"
-                android:text="На номер телефона придет подтверждение" />
+                android:text="На почту придет подтверждение" />
+
+            <EditText
+                android:id="@+id/RegFnameET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:hint="Имя"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/RegSnameET"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:ems="10"
+                android:fontFamily="@font/montserrat_alternates"
+                android:gravity="center"
+                android:hint="Фамилия"
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/RegPassET1"
