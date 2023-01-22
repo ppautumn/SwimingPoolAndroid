@@ -1,9 +1,9 @@
 package com.example.swpoolapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,6 +14,12 @@ class MenuActivity : AppCompatActivity() {
         val btTickets = findViewById<Button>(R.id.MenuAbonBT)
         val btSchedule = findViewById<Button>(R.id.MenueTtBT)
         val btSeans = findViewById<Button>(R.id.MenuSeansBT)
+        val btCont = findViewById<Button>(R.id.MenueKontBT)
+
+        btCont.setOnClickListener {
+            val intent = Intent(this@MenuActivity, ContactActivity::class.java)
+            startActivity(intent)
+        }
 
         btProfile.setOnClickListener {
             val intent = Intent(this@MenuActivity, ProfileActivity::class.java)
