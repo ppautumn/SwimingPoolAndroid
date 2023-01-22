@@ -38,8 +38,8 @@
                 android:ems="10"
                 android:fontFamily="@font/montserrat_alternates"
                 android:gravity="center"
-                android:hint="Телефон"
-                android:inputType="textPassword|phone"
+                android:hint="E-mail"
+                android:inputType="textWebEmailAddress|textPassword"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:theme="@style/Theme.SwPoolApp" />
 
