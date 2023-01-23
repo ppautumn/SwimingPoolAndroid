@@ -1,5 +1,6 @@
 package com.example.swpoolapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -84,12 +85,18 @@ class ScheduleActivity : AppCompatActivity() {
                 tv.gravity = Gravity.CENTER
                 if (i % 2 == 1) tv.setBackgroundColor(ContextCompat.getColor(this, R.color.TBgray))
                 val date = "hour:${line[0]} day:${Table[0][j]}"
+                val dateStr = Table[0][j]
+                val lineStr = line[0]
                 tv.setOnClickListener {
                     val text = date
                     val duration = Toast.LENGTH_SHORT
 
                     val toast = Toast.makeText(applicationContext, text, duration)
                     toast.show()
+                    val intent = Intent(this@ScheduleActivity, ReserveActivity::class.java)
+                    intent.putExtra("date", dateMap.getValue(dateStr));
+                    intent.putExtra("time", lineStr);
+                    startActivity(intent)
                 }
                 rowTable.addView(tv)
                 j++
@@ -171,7 +178,7 @@ class ScheduleActivity : AppCompatActivity() {
     fun getCoolDate(date: String): String {
         val dateLDT = LocalDate.parse(date)
         val coolDate = "${dateLDT.dayOfMonth} ${dateLDT.month.name}\n${dateLDT.dayOfWeek}"
-        dateMap.put(date, coolDate)
+        dateMap.put(coolDate, date)
         return coolDate
     }
 
