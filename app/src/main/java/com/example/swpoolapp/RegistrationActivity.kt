@@ -34,7 +34,7 @@ class RegistrationActivity : AppCompatActivity() {
         btIn.setOnClickListener {
             val postData =
                 "email=${emailET.text}&firstname=${fNameET.text}&lastname=${sNameET.text}&password=${pass1ET.text}&password2=${pass2ET.text}"
-            val url = "${usefulData.serverAddr}/auth/signup/"
+            val url = "${UsefullData.serverAddr}/auth/signup/"
             var answ = 0
             var txtToPrint = "Регистрация прошла успешно!"
             if (pass1ET.text.toString() == pass2ET.text.toString()) {
@@ -70,7 +70,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     fun signIn(email: String, pass: String): String {
-        val url = "${usefulData.serverAddr}/auth/token/"
+        val url = "${UsefullData.serverAddr}/auth/token/"
         val postData = "email=${email}&password=${pass}"
         var answ = ArrayList<String>()
         val x = object : Thread() {

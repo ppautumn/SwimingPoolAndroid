@@ -40,7 +40,7 @@ class ScheduleActivity : AppCompatActivity() {
                 println("running from Thread: ${Thread.currentThread()}")
 
                 responseJSON =
-                    sendGet("${usefulData.serverAddr}/tracks-schedule/?start=${curerntDateStr}&end=${lastDateStr}");
+                    sendGet("${UsefullData.serverAddr}/tracks-schedule/?start=${curerntDateStr}&end=${lastDateStr}");
 
             }
         }

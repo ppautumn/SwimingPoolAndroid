@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         val tvNoReg = findViewById<TextView>(R.id.noAuthTB)
         val etLogin = findViewById<EditText>(R.id.LoginET)
         val etPass = findViewById<EditText>(R.id.PassET)
+        val ipET = findViewById<EditText>(R.id.ipET1)
+        val ipBT = findViewById<Button>(R.id.IpBT)
+        ipBT.setOnClickListener {
+            UsefullData.serverAddr = ipET.text.toString()
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(applicationContext, UsefullData.serverAddr, duration)
+            toast.show()
+        }
+
+
         btIn.setOnClickListener {
             val token = signIn(etLogin.text.toString(), etPass.text.toString())
             if (!token.contains("Ошибка")) {
@@ -53,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun signIn(email: String, pass: String): String {
-        val url = "${usefulData.serverAddr}/auth/token/"
+        val url = "${UsefullData.serverAddr}/auth/token/"
         val postData = "email=${email}&password=${pass}"
         var answ = ArrayList<String>()
         val x = object : Thread() {

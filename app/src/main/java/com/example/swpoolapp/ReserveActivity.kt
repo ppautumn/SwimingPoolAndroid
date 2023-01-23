@@ -42,7 +42,7 @@ class ReserveActivity : AppCompatActivity() {
             val x = object : Thread() {
                 override fun run() {
                     println("running from Thread: ${Thread.currentThread()}")
-                    val url = "${usefulData.serverAddr}/timetable/"
+                    val url = "${UsefullData.serverAddr}/timetable/"
                     Log.e("Reserve", "token" + token)
                     Log.e("Reserve", "postData " + postData)
                     answ = sendPost(url, postData, token + "")

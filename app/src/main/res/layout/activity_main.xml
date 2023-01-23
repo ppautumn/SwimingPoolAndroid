@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,6 +21,20 @@
             android:layout_height="372dp"
             android:gravity="center"
             android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/ipET1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="http://192.168.0.105:80" />
+
+            <Button
+                android:id="@+id/IpBT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="set ip" />
 
             <TextView
                 android:id="@+id/loginTV"
