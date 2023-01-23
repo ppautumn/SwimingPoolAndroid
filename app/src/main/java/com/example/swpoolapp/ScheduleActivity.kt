@@ -21,6 +21,8 @@ import java.time.format.DateTimeFormatter
 
 class ScheduleActivity : AppCompatActivity() {
     var usefulData = UsefullData();
+    val dateMap = mutableMapOf<String, String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
@@ -168,7 +170,9 @@ class ScheduleActivity : AppCompatActivity() {
 
     fun getCoolDate(date: String): String {
         val dateLDT = LocalDate.parse(date)
-        return "${dateLDT.dayOfMonth} ${dateLDT.month.name}\n${dateLDT.dayOfWeek}"
+        val coolDate = "${dateLDT.dayOfMonth} ${dateLDT.month.name}\n${dateLDT.dayOfWeek}"
+        dateMap.put(date, coolDate)
+        return coolDate
     }
 
     fun parseTable(): ArrayList<ArrayList<String>> {
