@@ -11,16 +11,19 @@
         android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="276dp"
-            android:layout_height="372dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/corner_layout"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <EditText
                 android:id="@+id/ipET1"
@@ -34,7 +37,8 @@
                 android:id="@+id/IpBT"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="set ip" />
+                android:text="set ip"
+                app:cornerRadius="10dp" />
 
             <TextView
                 android:id="@+id/loginTV"
@@ -42,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:gravity="center"
-                android:text="Войти в личный кабинет"
+                android:text="Войти в \nличный кабинет"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
 
@@ -72,11 +76,11 @@
                 android:id="@+id/InpBT"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="#9C27B0"
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Войти"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <TextView
                 android:id="@+id/ForgetPassTV"
@@ -92,7 +96,8 @@
                 android:layout_height="50dp"
                 android:fontFamily="@font/montserrat_alternates"
                 android:gravity="center"
-                android:text="Если у вас ещё нет пароля для входа, вам нужно зарегистрироваться" />
+                android:text="Если у вас ещё нет пароля для входа, вам нужно зарегистрироваться"
+                android:textColor="@color/button_purp" />
 
         </LinearLayout>
     </ScrollView>

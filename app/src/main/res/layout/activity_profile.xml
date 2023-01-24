@@ -4,11 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:circularflow_defaultRadius="10dp"
+    app:circularflow_radiusInDP="10dp"
     tools:context=".ProfileActivity">
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:circularflow_defaultRadius="10dp"
+        app:circularflow_radiusInDP="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -17,13 +21,18 @@
         app:layout_constraintVertical_bias="0.493">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="323dp"
-            android:layout_height="644dp">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="15dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/corner_layout"
                 android:orientation="vertical"
+                android:padding="15dp"
+                app:circularflow_defaultRadius="10dp"
+                app:circularflow_radiusInDP="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -199,7 +208,8 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat_alternates_medium"
                         android:text="Изменить"
-                        android:textColor="@color/TBgray" />
+                        android:textColor="@color/TBgray"
+                        app:cornerRadius="10dp" />
 
                     <Button
                         android:id="@+id/ProfileSaveBT"
@@ -210,7 +220,8 @@
                         android:fontFamily="@font/montserrat_alternates_medium"
                         android:text="Сохранить"
                         android:textColor="@color/TBgray"
-                        android:visibility="visible" />
+                        android:visibility="visible"
+                        app:cornerRadius="10dp" />
 
                 </LinearLayout>
 
@@ -220,7 +231,8 @@
                     android:layout_height="50dp"
                     android:fontFamily="@font/montserrat_alternates_medium"
                     android:text="Изменить пароль"
-                    android:textColor="@color/TBgray" />
+                    android:textColor="@color/TBgray"
+                    app:cornerRadius="10dp" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

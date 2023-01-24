@@ -10,6 +10,7 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -17,10 +18,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="288dp"
-            android:layout_height="357dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corner_layout"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/RegTV"
@@ -113,7 +116,8 @@
                 android:gravity="center"
                 android:text="Зарегистрироваться"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
     </ScrollView>

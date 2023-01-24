@@ -9,18 +9,19 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:layout_width="276dp"
-            android:layout_height="372dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/corner_layout"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <Button
                 android:id="@+id/MenueLkBT"
@@ -29,7 +30,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Личный кабинет"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenueTtBT"
@@ -38,7 +40,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Расписание"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenueTrainBT"
@@ -47,7 +50,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Тренировки"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenuePriceBT"
@@ -56,7 +60,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Цены"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenuSeansBT"
@@ -66,7 +71,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Мои сеансы"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenuAbonBT"
@@ -76,7 +82,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Мои абонементы"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/MenueKontBT"
@@ -85,7 +92,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Контакты"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
         </LinearLayout>
     </ScrollView>
 

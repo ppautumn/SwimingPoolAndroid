@@ -8,8 +8,9 @@
 
     <ScrollView
         android:id="@+id/sv1"
-        android:layout_width="304dp"
-        android:layout_height="665dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/corner_layout"
         android:padding="30dp"
         android:paddingStart="30dp"
         android:paddingLeft="30dp"

@@ -8,14 +8,15 @@
 
     <ScrollView
         android:layout_width="0dp"
-        android:layout_height="328dp"
-        android:padding="30dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
         android:paddingStart="30dp"
         android:paddingLeft="30dp"
         android:paddingTop="30dp"
         android:paddingEnd="30dp"
         android:paddingRight="30dp"
         android:paddingBottom="30dp"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,8 +26,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/corner_layout"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="15dp">
 
             <TextView
                 android:id="@+id/textView2"
@@ -83,6 +86,7 @@
                         android:id="@+id/textView8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="Количество человек" />
 
                 </LinearLayout>
@@ -105,9 +109,10 @@
 
                     <TextView
                         android:id="@+id/textView9"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:gravity="center"
                         android:text="Номер дорожки (1-6)" />
 
                 </LinearLayout>
@@ -121,7 +126,8 @@
                 android:fontFamily="@font/montserrat_alternates_medium"
                 android:text="Записаться"
                 android:textColor="@color/TBgray"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
     </ScrollView>

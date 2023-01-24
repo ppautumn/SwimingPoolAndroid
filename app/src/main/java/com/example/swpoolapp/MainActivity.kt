@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             val duration = Toast.LENGTH_SHORT
             val toast = Toast.makeText(applicationContext, UsefullData.serverAddr, duration)
             toast.show()
+            ipBT.visibility = View.GONE
+            ipET.visibility = View.GONE
         }
 
 

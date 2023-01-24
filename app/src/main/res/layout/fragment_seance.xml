@@ -5,13 +5,15 @@
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/corner_layout"
     tools:context=".seanceFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/button_purp"
+        android:background="@drawable/corner_layout_prp"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -65,7 +67,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp">
 
                     <TextView
                         android:id="@+id/seancecCountTV"
@@ -93,9 +97,11 @@
                         android:layout_height="50dp"
                         android:layout_weight="1"
                         android:fontFamily="@font/montserrat_alternates_medium"
+                        android:paddingRight="20dp"
                         android:text="Отменить"
                         android:textColor="@color/TBgray"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        app:cornerRadius="10dp" />
                 </LinearLayout>
             </LinearLayout>
 
