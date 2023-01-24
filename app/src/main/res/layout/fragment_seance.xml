@@ -10,12 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/TBgray"
+        android:background="@color/button_purp"
         android:paddingLeft="10dp"
-        android:paddingTop="10dp"
-        android:paddingEnd="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,61 +19,86 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/timeTV"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="21 Декабря 9:00"
-            android:textColor="@color/black"
-            android:textSize="24sp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.132" />
+            app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/TypeTV1"
-            android:layout_width="0dp"
-            android:layout_height="19dp"
-            android:layout_marginTop="8dp"
-            android:text="Свободное плавание, 2я дорожка 45 минут"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.526"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/timeTV"
-            app:layout_constraintVertical_bias="0.0" />
+            <TextView
+                android:id="@+id/timeTV"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="21 Декабря 9:00"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/TypeTV2"
-            android:layout_width="392dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="10dp"
-            android:text="Иванов Иван Иванович (взр)"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TypeTV1"
-            app:layout_constraintVertical_bias="0.066" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/TBgray"
+                android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="135dp"
-            android:layout_height="49dp"
-            android:layout_marginTop="16dp"
-            android:text="Отменить"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TypeTV2" />
+                <TextView
+                    android:id="@+id/TypeTV2"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Иванов Иван Иванович "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/TypeTV1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center"
+                    android:text="Свободное плавание,\n 2я дорожка 45 минут"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/typeTV3"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="1 чел. "
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/type4TV"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="(Взр)"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btCancel"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/montserrat_alternates_medium"
+                        android:text="Отменить"
+                        android:textColor="@color/TBgray"
+                        android:textSize="16sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
