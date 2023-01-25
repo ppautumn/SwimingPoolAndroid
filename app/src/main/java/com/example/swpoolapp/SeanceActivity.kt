@@ -2,6 +2,7 @@ package com.example.swpoolapp
 
 import android.content.Context
 import android.content.pm.ActivityInfo
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Gravity
@@ -26,6 +27,8 @@ class SeanceActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seance)
         setTitle("Мои сеансы")
+
+
         val seanceLinear = findViewById<LinearLayout>(R.id.seancesLinear1)
 
         val tokensStorage =
@@ -79,6 +82,10 @@ class SeanceActivity : AppCompatActivity() {
             tvName.text = "${userMap.get("firstname")} ${userMap.get("lastname")}"
             personsTV.text = "${seanceMap.get("visitors")} чел. "
             typeTV.text = "Свободное плавание,\n ${seanceMap.get("track")}я дорожка 45 минут"
+            if (seanceMap.get("status").toString() == "awaiting payment") {
+                typeTV.text = "${typeTV.text}\nОжидает оплаты"
+                typeTV.setBackgroundColor(Color.YELLOW)
+            }
             tvDate.text =
                 getCoolDate(seanceMap.get("date").toString()) + " " + seanceMap.get("time_slot")
             btCancel.setOnClickListener {
@@ -94,8 +101,10 @@ class SeanceActivity : AppCompatActivity() {
                 x3.start()
                 x3.join()
                 if ((answ3[0].toInt() in 200..299)) {
-                    val cancelTv = findViewById<TextView>(R.id.deletedTV)
-                    cancelTv.visibility = View.VISIBLE
+                    val cancelTv1 = findViewById<TextView>(R.id.deletedTV)
+                    val cancelTv2 = findViewById<TextView>(R.id.deletedTV2)
+                    cancelTv1.visibility = View.VISIBLE
+                    cancelTv2.visibility = View.VISIBLE
                 }
             }
         }

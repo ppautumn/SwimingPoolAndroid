@@ -114,6 +114,19 @@
             android:alpha="0.5"
             android:background="@color/design_default_color_error"
             android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="60sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/deletedTV2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
             android:text="Отменено"
             android:textColor="@color/black"
             android:textSize="60sp"
