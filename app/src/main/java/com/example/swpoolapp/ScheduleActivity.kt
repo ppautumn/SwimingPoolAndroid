@@ -177,7 +177,10 @@ class ScheduleActivity : AppCompatActivity() {
 
     fun getCoolDate(date: String): String {
         val dateLDT = LocalDate.parse(date)
-        val coolDate = "${dateLDT.dayOfMonth} ${dateLDT.month.name}\n${dateLDT.dayOfWeek}"
+        val coolDate = "${dateLDT.dayOfMonth} ${UsefullData.month.get(dateLDT.month.name)}\n${
+            UsefullData.days.get(
+                dateLDT.dayOfWeek.name
+            )}"
         dateMap.put(coolDate, date)
         return coolDate
     }
