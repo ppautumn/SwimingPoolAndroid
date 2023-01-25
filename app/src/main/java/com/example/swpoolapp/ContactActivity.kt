@@ -11,6 +11,7 @@ class ContactActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact)
+        setTitle("Контакты")
         val listViews = ArrayList<TextView>()
         val tvAddr = findViewById<TextView>(R.id.AddrTV)
         val tvNum = findViewById<TextView>(R.id.NymTV)

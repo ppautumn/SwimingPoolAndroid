@@ -25,6 +25,7 @@ class SeanceActivity : AppCompatActivity() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_seance)
+        setTitle("Мои сеансы")
         val seanceLinear = findViewById<LinearLayout>(R.id.seancesLinear1)
 
         val tokensStorage =

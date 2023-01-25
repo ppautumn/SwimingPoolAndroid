@@ -19,6 +19,7 @@ class ReserveActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_reserve)
+        setTitle("Запись")
         val arguments = intent.extras
         val date = arguments?.get("date").toString()
         val time = arguments?.get("time").toString()

@@ -27,6 +27,7 @@ class ScheduleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
+        setTitle("Расписание")
         val currentDate = LocalDateTime.now()
         val curerntDateStr = currentDate.format(DateTimeFormatter.ofPattern("YYYY-MM-DD"))
         val lastDate = getLastDate(currentDate)
@@ -180,7 +181,8 @@ class ScheduleActivity : AppCompatActivity() {
         val coolDate = "${dateLDT.dayOfMonth} ${UsefullData.month.get(dateLDT.month.name)}\n${
             UsefullData.days.get(
                 dateLDT.dayOfWeek.name
-            )}"
+            )
+        }"
         dateMap.put(coolDate, date)
         return coolDate
     }

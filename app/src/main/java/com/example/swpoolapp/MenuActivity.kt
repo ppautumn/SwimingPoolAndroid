@@ -9,7 +9,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
-
+        setTitle("Меню")
         val btProfile = findViewById<Button>(R.id.MenueLkBT)
         val btTickets = findViewById<Button>(R.id.MenuAbonBT)
         val btSchedule = findViewById<Button>(R.id.MenueTtBT)

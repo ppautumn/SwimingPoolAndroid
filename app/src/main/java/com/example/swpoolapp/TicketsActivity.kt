@@ -14,7 +14,7 @@ class TicketsActivity : AppCompatActivity() {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tickets)
-
+        setTitle("Мои абонементы")
         val ticketsLinear = findViewById<LinearLayout>(R.id.ticketsLinear1)
         val tt = findViewById<TextView>(R.id.TicketsTV)
 

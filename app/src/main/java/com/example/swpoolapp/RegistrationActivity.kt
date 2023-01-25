@@ -23,7 +23,7 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-
+        setTitle("Регистрация")
         val emailET = findViewById<EditText>(R.id.RegLoginET)
         val pass1ET = findViewById<EditText>(R.id.RegPassET1)
         val pass2ET = findViewById<EditText>(R.id.RegPassET2)

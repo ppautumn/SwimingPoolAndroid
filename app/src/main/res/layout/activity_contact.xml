@@ -7,15 +7,21 @@
     tools:context=".ContactActivity">
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:padding="15dp"
         android:paddingStart="30dp"
         android:paddingLeft="30dp"
         android:paddingTop="30dp"
         android:paddingEnd="30dp"
         android:paddingRight="30dp"
-        android:paddingBottom="30dp">
+        android:paddingBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +40,8 @@
                 android:text="Контакты"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/textView4"
