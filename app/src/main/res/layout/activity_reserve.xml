@@ -129,6 +129,16 @@
                 android:textSize="18sp"
                 app:cornerRadius="10dp" />
 
+            <Button
+                android:id="@+id/payBT"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/montserrat_alternates_medium"
+                android:text="Оплатить"
+                android:textColor="@color/TBgray"
+                android:textSize="18sp"
+                app:cornerRadius="10dp" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

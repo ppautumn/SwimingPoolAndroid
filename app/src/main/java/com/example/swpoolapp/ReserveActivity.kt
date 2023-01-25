@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.beust.klaxon.JsonObject
+import com.beust.klaxon.Parser
 import java.io.DataOutputStream
 import java.io.FileNotFoundException
 import java.net.HttpURLConnection
@@ -23,7 +25,7 @@ class ReserveActivity : AppCompatActivity() {
         val arguments = intent.extras
         val date = arguments?.get("date").toString()
         val time = arguments?.get("time").toString()
-
+        var slotId = ""
         val tokensStorage =
             getSharedPreferences("tokens", Context.MODE_PRIVATE)
         val token = tokensStorage.getString("accessToken", "")
@@ -35,6 +37,7 @@ class ReserveActivity : AppCompatActivity() {
         val timeTV = findViewById<TextView>(R.id.TimeTV)
         timeTV.text = time
         val btSubmit = findViewById<Button>(R.id.ReserveBT)
+        val btPay = findViewById<Button>(R.id.payBT)
         btSubmit.setOnClickListener {
             var postData =
                 "{\"date\": \"${date}\",\"time_slot\": \"${time}\",\"track\": ${trackET.text},\"visitors\": ${countET.text}}"
@@ -53,11 +56,42 @@ class ReserveActivity : AppCompatActivity() {
             x.start()
             x.join()
             Log.e("Reserve", answ[0] + " " + answ[1]);
+            slotId =
+                ((Parser.default().parse(StringBuilder(answ[1])) as JsonObject).toMutableMap()).get(
+                    "id"
+                ).toString()
             var toastTxt = "Удачно!"
             if (!(answ[0].toInt() in 200..299)) {
                 toastTxt = "Ошибка! попробуйте отменить текущую запись."
             } else {
-                val intent = Intent(this@ReserveActivity, ScheduleActivity::class.java)
+                /*  val intent = Intent(this@ReserveActivity, SeanceActivity::class.java)
+                  startActivity(intent)*/
+            }
+            val duration = Toast.LENGTH_SHORT
+            val toast = Toast.makeText(applicationContext, toastTxt, duration)
+            toast.show()
+        }
+        btPay.setOnClickListener {
+            var postData = ""
+
+            var answ = ArrayList<String>()
+            val x = object : Thread() {
+                override fun run() {
+                    println("running from Thread: ${Thread.currentThread()}")
+                    val url = "${UsefullData.serverAddr}/slot-payment/${slotId}/"
+                    Log.e("Reserve", "token" + token)
+                    Log.e("Reserve", "postData " + postData)
+                    answ = sendPost(url, postData, token + "")
+                    Log.e("Pay", answ[0] + " " + answ[1] + " " + url);
+                }
+            }
+            x.start()
+            x.join()
+            var toastTxt = "Удачно!"
+            if (!(answ[0].toInt() in 200..299)) {
+                toastTxt = "Ошибка оплаты!"
+            } else {
+                val intent = Intent(this@ReserveActivity, SeanceActivity::class.java)
                 startActivity(intent)
             }
             val duration = Toast.LENGTH_SHORT
