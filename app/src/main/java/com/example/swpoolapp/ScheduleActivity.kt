@@ -89,11 +89,11 @@ class ScheduleActivity : AppCompatActivity() {
                 val dateStr = Table[0][j]
                 val lineStr = line[0]
                 tv.setOnClickListener {
-                    val text = date
+/*                    val text = date
                     val duration = Toast.LENGTH_SHORT
 
                     val toast = Toast.makeText(applicationContext, text, duration)
-                    toast.show()
+                    toast.show()*/
                     val intent = Intent(this@ScheduleActivity, ReserveActivity::class.java)
                     intent.putExtra("date", dateMap.getValue(dateStr));
                     intent.putExtra("time", lineStr);

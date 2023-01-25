@@ -116,10 +116,11 @@ class RegistrationActivity : AppCompatActivity() {
         val conn = url.openConnection() as HttpURLConnection
         var output = ""
         conn.doOutput = true
+        var pd = String(postData.toByteArray(), charset("ISO-8859-1"))
         conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded")
-        conn.setRequestProperty("Content-Length", postData.length.toString())
+        conn.setRequestProperty("Content-Length", pd.length.toString())
 
-        DataOutputStream(conn.getOutputStream()).use { it.writeBytes(postData) }
+        DataOutputStream(conn.getOutputStream()).use { it.writeBytes(pd) }
         conn.connect()
         val code = conn.responseCode
         try {
